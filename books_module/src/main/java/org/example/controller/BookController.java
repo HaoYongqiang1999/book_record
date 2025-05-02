@@ -1,6 +1,7 @@
 package org.example.controller;
 
 import org.example.domain.Book;
+import org.example.domain.Result;
 import org.example.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

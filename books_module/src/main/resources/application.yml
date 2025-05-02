@@ -12,12 +12,18 @@ spring:
   application:
     name: books_module
   cloud:
-    nacos:
-      server-addr: localhost:8848
-      discovery:
-        enabled: true
-      config:
-        enabled: false
+    consul:
+      host: localhost
+      port: 8500
+#    nacos:
+#      server-addr: localhost:8848
+#      discovery:
+#        enabled: true
+#      config:
+#        enabled: false
 logging:
   level:
-    com: debug
+    org:
+      example:
+        apis:
+          RecordsFeignApi: DEBUG

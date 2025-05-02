@@ -15,35 +15,17 @@ spring:
   application:
     name: records-module
   cloud:
-    nacos:
-      server-addr: localhost:8848
-      config:
-        import-check:
-          enabled: false
+    consul:
+      host: localhost
+      port: 8500
+
 logging:
   level:
     com.alibaba.cloud: DEBUG
     org.springframework.cloud: DEBUG
     com.alibaba.nacos: DEBUG
-
----
-spring:
-  config:
-    import: nacos:records-module.properties?group=records-module
-    activate:
-      on-profile: dev
-  cloud:
-    nacos:
-      config:
-        namespace: dev
-
----
-spring:
-  config:
-    import: nacos:records-module.properties?group=records-module
-    activate:
-      on-profile: prod
-  cloud:
-    nacos:
-      config:
-        namespace: prod
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "beans,health"

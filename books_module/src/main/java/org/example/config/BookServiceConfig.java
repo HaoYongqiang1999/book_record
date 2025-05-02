@@ -1,5 +1,6 @@
 package org.example.config;
 
+import feign.Logger;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
 import org.springframework.context.annotation.Bean;
@@ -13,6 +14,9 @@ public class BookServiceConfig {
     public RestTemplate myrestTemplate() {
         return new RestTemplate();
     }
-
+    @Bean
+    Logger.Level feignLoggerLevel() {
+        return Logger.Level.FULL;
+    }
 
 }

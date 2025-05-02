@@ -1,4 +1,4 @@
-package org.example.controller;
+package org.example.domain;
 
 public class Result {
     private Object data;
@@ -11,6 +11,15 @@ public class Result {
     public Result(Integer code,Object data) {
         this.data = data;
         this.code = code;
+    }
+
+    @Override
+    public String toString() {
+        return "Result{" +
+                "data=" + data +
+                ", code=" + code +
+                ", msg='" + msg + '\'' +
+                '}';
     }
 
     public Result(Integer code, Object data, String msg) {

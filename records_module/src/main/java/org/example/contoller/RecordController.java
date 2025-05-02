@@ -1,6 +1,7 @@
 package org.example.contoller;
 
 import org.example.domain.Record;
+import org.example.domain.Result;
 import org.example.service.RecordService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +16,8 @@ public class RecordController {
         return "hello";
     }
     @PostMapping("/addRecord")
-    public Object getBookRecord(@RequestBody Record record) {
-        return recordService.addRecord(record) ? "success" : "fail";
+    public Result getBookRecord(@RequestBody Record record) {
+        boolean bol= recordService.addRecord(record);
+        return new Result( bol ? 200: 500, null,  bol ? "成功！" : "失败！");
     }
 }

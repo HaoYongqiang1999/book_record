@@ -13,11 +13,8 @@ import org.example.domain.Record;
 public class RecordServiceImpl implements RecordService {
     @Autowired
     private RecordDao recordDao;
-    @Autowired
-    private RecordProperties recordProperties;
     public boolean addRecord(Record record) {
-        boolean state = recordDao.save(record) == 1;
-        System.out.println(recordProperties.getEmpEmail() + ": 你好！ 接口调用" + (state ? "成功" : "失败"));
-        return state;
+        System.out.println(record.toString());
+        return recordDao.save(record) == 1;
     }
 }
