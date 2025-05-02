@@ -1,0 +1,49 @@
+# TODO 配置数据源相关信息
+
+server:
+  port: 81
+
+spring:
+  profiles:
+    active: dev
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/record_db #?servierTimezone=UTC
+    username: root
+    password: root
+  application:
+    name: records-module
+  cloud:
+    nacos:
+      server-addr: localhost:8848
+      config:
+        import-check:
+          enabled: false
+logging:
+  level:
+    com.alibaba.cloud: DEBUG
+    org.springframework.cloud: DEBUG
+    com.alibaba.nacos: DEBUG
+
+---
+spring:
+  config:
+    import: nacos:records-module.properties?group=records-module
+    activate:
+      on-profile: dev
+  cloud:
+    nacos:
+      config:
+        namespace: dev
+
+---
+spring:
+  config:
+    import: nacos:records-module.properties?group=records-module
+    activate:
+      on-profile: prod
+  cloud:
+    nacos:
+      config:
+        namespace: prod
