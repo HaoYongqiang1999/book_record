@@ -13,10 +13,10 @@ logging:
   level:
     org.springframework.cloud: DEBUG
 
-#zuul:
-#  discovery:
-#    enabled: true
-#  routes:
-#    records:
-#      path: /records/**
-#      service-id: records-module
+zuul:
+  prefix: /records
+  ignored-services: "*"
+  routes:
+    records:
+      path: /**
+      service-id: records-module

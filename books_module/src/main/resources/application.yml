@@ -27,3 +27,7 @@ logging:
       example:
         apis:
           RecordsFeignApi: DEBUG
+
+feign:
+  sentinel:
+    enabled: true

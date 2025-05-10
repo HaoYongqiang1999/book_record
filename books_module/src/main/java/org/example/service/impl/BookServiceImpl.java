@@ -34,14 +34,9 @@ public class BookServiceImpl implements BookService {
     }
 
     public boolean update(Book book) {
-        Result result = null;
-        try {
-            result = recordsFeignApi.getBookRecord(
-                    new Record(null, null, "update", book.getName())
-            );
-        } catch (Exception e) {
-            System.out.println(e.toString());
-        }
+        Result result= recordsFeignApi.getBookRecord(
+                new Record(null, null, "update", book.getName())
+        );
         System.out.println(result);
         return bookDao.update(book) > 0;
     }
