@@ -46,4 +46,14 @@ public class Record {
     public void setBookName(String bookName) {
         this.bookName = bookName;
     }
+
+    @Override
+    public String toString() {
+        return "Record{" +
+                "id=" + id +
+                ", updateTime='" + updateTime + '\'' +
+                ", operation='" + operation + '\'' +
+                ", bookName='" + bookName + '\'' +
+                '}';
+    }
 }
