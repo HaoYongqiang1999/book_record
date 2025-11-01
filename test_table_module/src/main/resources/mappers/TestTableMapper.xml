@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.haotest.dao.TestTableDao">
+
+    <insert id="testTableInsert" parameterType="org.haotest.vo.TestTableVo">
+        INSERT INTO ${tabNm}
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <foreach collection="columnData" index="key777" item="value777" separator=",">
+                ${key777}
+            </foreach>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <foreach collection="columnData" index="key77" item="value77" separator=",">
+                #{value77}
+            </foreach>
+        </trim>
+    </insert>
+
+</mapper>
+

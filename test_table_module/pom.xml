@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.itheima</groupId>
-	<artifactId>books_module</artifactId>
+	<artifactId>test_table_module</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>books_module</name>
-	<description>Demo project for Spring Boot</description>
+	<name>test_table_module</name>
+	<description>test_table_module</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
@@ -36,22 +36,11 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>com.itheima</groupId>
-			<artifactId>test_table_module</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-    		<scope>compile</scope>
-		</dependency>
 		<!--TODO 添加必要的依赖坐标-->
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>druid</artifactId>
 			<version>1.1.16</version>
-		</dependency>
-		<dependency>
-			<groupId>org.example</groupId>
-			<artifactId>models_module</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
@@ -98,8 +87,21 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<skip>true</skip> <!-- 跳过 repackage -->
+				</configuration>
 			</plugin>
 		</plugins>
+<!--		<resources>-->
+<!--			<resource>-->
+<!--				<directory>src/main/resources</directory>-->
+<!--				<includes>-->
+<!--					<include>**/*.xml</include>-->
+<!--				</includes>-->
+<!--			</resource>-->
+<!--		</resources>-->
 	</build>
 
+
+	<packaging>jar</packaging>
 </project>

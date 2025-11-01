@@ -1,6 +1,8 @@
 package org.example.config;
 
 import feign.Logger;
+import org.haotest.service.TestTableService;
+import org.haotest.service.impl.TestTableServiceImpl;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
 import org.springframework.context.annotation.Bean;
@@ -18,5 +20,6 @@ public class BookServiceConfig {
     Logger.Level feignLoggerLevel() {
         return Logger.Level.FULL;
     }
+
 
 }
